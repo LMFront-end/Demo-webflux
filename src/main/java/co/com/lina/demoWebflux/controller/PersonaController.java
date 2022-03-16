@@ -64,7 +64,7 @@ public class PersonaController {
                     return eliminar(p)
                             // retornar algo vacio HttpStatus.NO_CONTENT
                             .then(Mono.just(new ResponseEntity<Void>(HttpStatus.NO_CONTENT)));
-                });
+                }).defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
     }
 
     public Mono<Void> eliminar(Persona p){
